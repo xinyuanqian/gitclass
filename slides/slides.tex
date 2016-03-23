@@ -1,0 +1,205 @@
+\documentclass{beamer}
+\usepackage{listings}
+
+\begin{document}
+
+\title[git]
+{A short introduction to version control with Git}
+\subtitle{Git - You'll never learn it all!}
+\author[Blundell]
+{Benjamin ~Blundell\inst{1}}
+\institute[ITS Research, QMUL]
+{
+  \inst{1}
+  ITS Research\\
+  Queen Mary University of London
+ }
+\date[2016]
+{CIS Software Engineering Day, 2016}
+\subject{Computer Science}
+
+% Slides
+% Title
+\frame{\titlepage}
+
+
+% Introduction
+\begin{frame}
+  \frametitle{Introduction}
+  
+  \begin{block}{Me}
+    \begin{itemize}  
+      \item b.blundell@qmul.ac.uk 
+      \item ITS Research - writing programs for scientists and artists.
+      \item Helping people with their HPC problems.
+      \item Previously ran small company building graphics-type things
+      \item I write stuff at www.section9.co.uk
+      \item I use Git everyday
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+% What is it?
+\begin{frame}
+  \frametitle{What is it?}
+
+  \begin{block}{What is git?}
+    \begin{itemize}  
+      \item Version control system developed for the Linux Kernel. 
+      \item Distributed as opposed to centralised.
+      \item A suite of many, many small tools.
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{What is github?}
+    \begin{itemize}  
+      \item Git, but on the internets.
+      \item User-friendly interface including visualisations.
+      \item A social network of sorts.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+% Why?
+\begin{frame}
+  \frametitle{How will Git help me right now?}
+
+  \begin{block}{Advantages to version control}
+    \begin{itemize}  
+      \item Backing up your work.
+      \item Undo-ing changes you've made.
+      \item Sharing work with others.
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Advantages to github}
+    \begin{itemize}  
+      \item Collaboration (showing off?).
+      \item Off-site backup of code.
+      \item Public accountability.
+      \item Open-source contribution.
+      \item A place to put all my slides so you can get them easily.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+% Resources
+\begin{frame}
+  \frametitle{Resources}
+
+  \begin{block}{Reference material}
+    \begin{itemize}
+      \item https://git-scm.com/doc
+      \item https://git-scm.com/book/en/v2
+      \item man pages for git
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Tutorials}
+    \begin{itemize}  
+      \item https://try.github.io/
+      \item http://gitreal.codeschool.com/
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Software}
+   \begin{itemize}  
+      \item Git for Windows.
+      \item TortoiseGit.
+      \item Git is built into Visual Studio and others.
+    \end{itemize}
+
+  \end{block}
+\end{frame}
+
+% Basic Commands
+\begin{frame}[fragile]
+  \frametitle{Lets begin}
+
+  \begin{lstlisting}[caption=Basic Commands] 
+  git clone https://github.com/QMUL/ntlmgen
+  git log
+  git status
+  \end{lstlisting}
+
+\end{frame}
+
+
+% Changes
+\begin{frame}[fragile]
+  \frametitle{Making changes}
+  
+  \begin{lstlisting}[caption=Making changes] 
+  git status
+  git add licence.txt
+  git status
+  git commit -a -m "Altered readme \
+   and added a licence"
+  \end{lstlisting}
+
+\end{frame}
+
+% Branching
+
+\begin{frame}[fragile]
+  \frametitle{Branching out}
+  
+  \begin{lstlisting}[caption=Branching] 
+  git branch alpha
+  git checkout alpha
+  git branch
+  git commit -a -m "altered ntlmgen"
+  git push origin alpha
+  \end{lstlisting}
+
+\end{frame}
+
+% merging
+
+\begin{frame}[fragile]
+  \frametitle{Merging}
+  
+  \begin{lstlisting}[caption=Merging] 
+  git checkout master
+  git merge alpha
+  git status
+  git branch -d alpha
+  \end{lstlisting}
+
+\end{frame}
+
+
+% recovery
+
+\begin{frame}[fragile]
+  \frametitle{Undoing mistakes}
+  
+  \begin{lstlisting}[caption=Hard Reset] 
+  git reset --hard HEAD
+  \end{lstlisting}
+
+\end{frame}
+
+
+
+% Advanced Topics
+
+% stashing
+
+% rebasing
+
+% tagging
+
+% Flows
+
+% diffing
+
+% Build Systems
+% segue into testing
+
+\end{document}
+
