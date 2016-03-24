@@ -120,10 +120,14 @@
 \begin{frame}[fragile]
   \frametitle{Lets begin}
 
-  \begin{lstlisting}[caption=Basic Commands] 
+  \begin{lstlisting}[caption=clone a repository] 
   git clone https://github.com/QMUL/ntlmgen
   git log
   git status
+  \end{lstlisting}
+
+  \begin{lstlisting}[caption=create a new repository] 
+  git init 
   \end{lstlisting}
 
 \end{frame}
@@ -185,21 +189,161 @@
 \end{frame}
 
 
+% remotes
+
+\begin{frame}[fragile]
+  \frametitle{Remotes}
+  
+  \begin{lstlisting}[caption=Remotes] 
+  git remote show
+  git remote show origin
+  git push origin master
+  \end{lstlisting}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Time for a break}
+ 
+  \begin{itemize} 
+    \item Practical session to follow 
+  \end{itemize}
+ 
+\end{frame}
+
 
 % Advanced Topics
 
 % stashing
 
+\begin{frame}[fragile]
+  \frametitle{Stashing}
+  Sometimes you want to temporarily store changes and come back to them later without commiting.
+
+  \begin{lstlisting}[caption=stashing] 
+  git stash
+  git status
+  git stash list
+  git stash apply
+  \end{lstlisting}
+
+\end{frame}
+
 % rebasing
+
+\begin{frame}
+  \frametitle{rebasing}
+    Rebasing, in some ways, is another way to perform a merge (amongst other things). It *replays* changes on-top of a common ancestor.
+
+
+  \begin{block}{example with merging}
+    \includegraphics[height=3cm]{basic-rebase-2.png}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{rebasing 2}
+  
+  \begin{lstlisting}[caption=rebase] 
+   git checkout experiment
+   git rebase master
+  \end{lstlisting}
+
+  \begin{block}{example with a rebase}
+    \includegraphics[height=3cm]{basic-rebase-3.png}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{rebasing 3}
+  
+  \begin{lstlisting}[caption=rebase] 
+    git checkout master
+    git merge experiment
+  \end{lstlisting}
+
+  \begin{block}{example with a rebase}
+    \includegraphics[height=3cm]{basic-rebase-4.png}
+  \end{block}
+
+\end{frame}
+
 
 % tagging
 
-% Flows
+\begin{frame}[fragile]
+  \frametitle{tagging}
+  Tags are good ways to mark commits. Also useful for people when they checkout your code. 
+
+  \begin{lstlisting}[caption=tagging] 
+   git tag
+   git tag -a v1.4 -m "my version 1.4"
+   git show v1.4
+  \end{lstlisting}
+
+  Can create lightweight tags (just the checksum) by not adding -a.
+
+\end{frame}
 
 % diffing
 
+\begin{frame}[fragile]
+  \frametitle{diff}
+  Tools to see the differences and create patches from these differences.
+
+  \begin{lstlisting}[caption=diff examples] 
+   git diff
+   git diff HEAD
+   git diff HEAD^ HEAD
+  \end{lstlisting}
+
+  Various other tools like vimdiff, and more advanced diffs across branches
+
+  \begin{lstlisting}[caption=diff examples 2] 
+    git difftool --tool=vimdiff --no-prompt \
+      origin/togusa:.vimrc .vimrc
+  \end{lstlisting}
+
+\end{frame}
+
+% Flows
+
+\begin{frame}
+  \frametitle{Flows}
+  A way to organise your work. Use branches and tags to keep work organised. 
+ 
+  \begin{itemize}
+    \item development/trunk
+    \item stage/pre-production
+    \item production/live
+  \end{itemize}
+ 
+\end{frame}
+
 % Build Systems
+
+\begin{frame}
+  \frametitle{Integrating Git with workflow}
+  Git and github work well with other tools. Automatic build-tools  
+
+  \begin{itemize} 
+    \item https://travis-ci.org/
+    \item https://jenkins.io/index.html
+  \end{itemize}
+ 
+\end{frame}
+
 % segue into testing
+
+\begin{frame}
+  \frametitle{Integrating Git with workflow 2}
+  Can also automatically test code upon commit ... 
+
+\end{frame}
+
 
 \end{document}
 
