@@ -14,6 +14,17 @@ Make sure you have a good text editor available, that you are comfortable with. 
 
 You should also create a [http://github.com](github.com) account if you don't have one.
 
+
+Using the college machines, you will find git-bash and git-cmd on the '''L:''' drive here:
+
+    L:\Git-2.6.4-32-bit
+
+Using git-bash, you should run the following command before all others
+
+    git config --global http.sslverify "false"
+
+This is a temporary work around '''and should not be used in production'''.
+
 # Resources and other options
 
 There are many ways to get help, and many great tutorials out there. We don't insist you follow this tutorial, although we'd like it if you did. Others we recommend include:
