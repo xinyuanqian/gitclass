@@ -334,7 +334,9 @@
   \end{lstlisting}
 
   \begin{lstlisting}[caption=make some changes] 
-  https://archive.org/details/gutenberg?and[]=shakespeare
+  https://archive.org/details/
+    gutenberg?and[]=shakespeare
+  
   git commit -a -m "Added more shakespeare to use"
   git push origin morespeare
   \end{lstlisting}
@@ -385,18 +387,26 @@
 
 \begin{frame}[fragile]
   \frametitle{Collaboration}
-  Sometimes you want to temporarily store changes and come back to them later without commiting.
+  Using remote repositories with correct access controls we can work collaboratively.
+ 
+  \begin{block}{collaboration}
+   \begin{itemize}  
+      \item github.com is perhaps the most widely known.
+      \item git-lab.
+      \item gitolite with keys and a server.
+      \item Any remote repository where you can get access.
+    \end{itemize}
+  \end{block}
 
-  \begin{lstlisting}[caption=stashing] 
-  git stash
-  git status
-  git stash list
-  git stash apply
-  \end{lstlisting}
+ 
 
 \end{frame}
 
 
+\begin{frame}[fragile]
+  \frametitle{Advanced Topics}
+  Practical Exercise before we move onto advanced topics.
+\end{frame}
 
 
 % Advanced Topics

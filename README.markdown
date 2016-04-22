@@ -320,7 +320,54 @@ Rather than use a clone, it is possible to pull directly from one person's repos
 
    git pull https://github.com/<username>/gitclass.git
 
- 
+This will pull down the changes and attempt to merge with your repository. You may find you have conflicts and things to change and delete.
+
+Go through each file, removing any conflicts and keeping or deleting the bits you want from your friend's repository. You now have a repository, or rather a commit, that has two direct ancestors. You can check this in the git log, or by pushing your changes to github and looking at the commit graph. In fact, lets do that:
+
+    git push cis master
+
+
+### Working with a fork as a critic.
+
+Lets suppose we are being a critic and we have a suggestion to make. Typically, in a shared git setup, we could:
+
+ * branch off into a patch branch
+ * make the changes we think are best
+ * submit a patch or diff for review
+ * If the review is accepted, the original owner can merge your changes.
+
+github has a similar method, known as pull requests. When you fork a repository, you can make changes on your local machine, push these changes to *your fork* and then create a *pull request*.
+
+Both your fork and your friend's fork have a common ancestor and therefore, can be considered to be variants of the same project. This is good for us. If you've followed the previous exercise, you should have made some changes to your epic poem. Now, try making some changes to your friend's file. 
+
+Once you've made chanages you should commit and then push to github:
+
+    git commit -a -m "Made a few editorial changes I think you will like"
+    git push cis master
+
+Now, navigate to github.com and find your friend's repository again. You should see a big green button called *New pull request*. Press this and you'll be taken to the pull request page. At the top you should see drop down menu items referring to the two versions you want to merge. Select yours and your friend's and hit *Create pull request*. Your friend will now have this request waiting. It's up to them if they accept it or not.
+
+# Lets review  
+
+We've looked at a lot in this course, both git and it's web friendly version - github.com. You'll likely come across one or both of these if you program for long enough. We've covered:
+
+ * Creating and cloning repositories
+ * Staging files
+ * Committing changes
+ * Pushing and pulling from remotes
+ * Undoing changes
+ * Logs
+ * Conflicts
+ * Branching
+ * github's forking and pull requests
+
+These are some of the basics and you'll likely use these commands more than any others. However, there are many more ways of using commands and in the final lecture, we'll cover some of these, specifically the following:
+
+ * Stashing
+ * Rebasing
+ * Tagging
+ * Using diffs
+
 # Credits
 
 Inspired by [http://poly-graph.co/vocabulary.html](http://poly-graph.co/vocabulary.html).
