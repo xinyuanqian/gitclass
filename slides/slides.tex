@@ -116,13 +116,33 @@
   \end{block}
 \end{frame}
 
+
 % Basic Commands
 \begin{frame}[fragile]
-  \frametitle{Lets begin}
+  \frametitle{Lets begin (0)}
+
+  \begin{lstlisting}[caption=setup git for windows] 
+  L:\Git-2.6.4-32-bit\git-bash.exe
+  git config --global http.sslverify "false"
+  \end{lstlisting}
+
+ \begin{block}{Git for Windows}
+   \begin{itemize}  
+      \item Git for Windows is but one version of git
+      \item Same commands on Linux and MacOS
+    \end{itemize}
+  \end{block}
+
+
+\end{frame}
+
+
+% Basic Commands
+\begin{frame}[fragile]
+  \frametitle{Lets begin (1)}
 
   \begin{lstlisting}[caption=clone a repository] 
-  git clone https://github.com/QMUL/ntlmgen
-  git log
+  git clone https://github.com/QMUL/gitclass.git
   git status
   \end{lstlisting}
 
@@ -139,10 +159,148 @@
   
   \begin{lstlisting}[caption=Making changes] 
   git status
-  git add licence.txt
+  git add <your filename>
   git status
-  git commit -a -m "Altered readme \
-   and added a licence"
+  \end{lstlisting}
+
+\end{frame}
+
+% Changes
+\begin{frame}[fragile]
+  \frametitle{Differences and Reset}
+  
+  \begin{lstlisting}[caption=Making changes] 
+  git diff --staged
+  \end{lstlisting}
+
+  \begin{lstlisting}[caption=Reset changes] 
+  git reset <myfilename>
+  \end{lstlisting}
+
+\end{frame}
+
+% Forking
+\begin{frame}[fragile]
+  \frametitle{Forking on Github}
+  
+  \begin{block}{Forking}
+   \begin{itemize}  
+      \item Not strictly a git command per-se. A github.com feature
+      \item Creating our own version and copy online on github
+      \item Related to the original
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+% Remote
+\begin{frame}[fragile]
+  \frametitle{Remote Copies / Repositories}
+  
+  \begin{block}{Remote}
+   \begin{itemize}  
+      \item A copy of the repository, complete and somewhere else.
+      \item Could be github, or another directory on the same disk.
+    \end{itemize}
+  \end{block}
+
+  \begin{lstlisting}[caption=Reset changes] 
+  git remote add cis <address>
+  git@github.com:MYUSERNAME/gitclass.git
+  git remote --help
+  \end{lstlisting}
+
+\end{frame}
+
+% Commit
+\begin{frame}[fragile]
+  \frametitle{Committing changes}
+  
+  \begin{block}{commit}
+    \begin{itemize}  
+      \item Possibly the most used command
+      \item Staged changes are 'committed'.
+    \end{itemize}
+  \end{block}
+
+  \begin{lstlisting}[caption=git commit] 
+  git commit --help
+  git commit -a -m "<my message>"
+  \end{lstlisting}
+
+\end{frame}
+
+% Push
+
+\begin{frame}[fragile]
+  \frametitle{Pushing Commits}
+  
+  \begin{block}{push}
+    \begin{itemize}  
+      \item Pushing your commits to a remote repository.
+    \end{itemize}
+  \end{block}
+
+  \begin{lstlisting}[caption=git push] 
+  git push cis master
+  git diff
+  \end{lstlisting}
+\end{frame}
+
+% Log
+\begin{frame}[fragile]
+  \frametitle{Checking History}
+  
+  \begin{block}{checking}
+    \begin{itemize}  
+      \item Looking at the history of commits
+      \item List of git commit messages and unique IDs
+    \end{itemize}
+  \end{block}
+
+  \begin{lstlisting}[caption=git log] 
+  git log
+  \end{lstlisting}
+\end{frame}
+
+% Removing things
+
+\begin{frame}[fragile]
+  \frametitle{Removing files}
+  
+  \begin{lstlisting}[caption=Removing Files] 
+  git rm <your file name>
+  git commit -a -m "removed our new file"
+  \end{lstlisting}
+
+\end{frame}
+
+% Undoing things
+
+\begin{frame}[fragile]
+  \frametitle{Its all gone wrong(0)}
+
+  \begin{block}{wrong}
+   \begin{itemize}  
+      \item What do we do if we delete or change things and we want to go back
+      \item We need to think about pointers and commit IDs
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Pointers}
+    \includegraphics[height=3cm]{branch-and-history.png}
+  \end{block}
+
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Its all gone wrong(1)}
+  
+  \begin{lstlisting}[caption=restoring things] 
+  git reset --hard HEAD~1
+  git reset --hard HEAD
   \end{lstlisting}
 
 \end{frame}
@@ -150,67 +308,95 @@
 % Branching
 
 \begin{frame}[fragile]
-  \frametitle{Branching out}
-  
-  \begin{lstlisting}[caption=Branching] 
-  git branch alpha
-  git checkout alpha
-  git branch
-  git commit -a -m "altered ntlmgen"
-  git push origin alpha
-  \end{lstlisting}
+  \frametitle{Branching (0)}
+
+  \begin{block}{branching}
+   \begin{itemize}  
+      \item Probably the heart of Git - different code with a common history.
+      \item Can 'branch off' from the main codebase to test things.
+      \item Can merge back at a later date. Everything recorded.
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{master and testing branches}
+    \includegraphics[height=3cm]{advance-master.png}
+  \end{block}
+
 
 \end{frame}
 
-% merging
+\begin{frame}[fragile]
+  \frametitle{Branching (1)}
+
+  \begin{lstlisting}[caption=branching] 
+  git branch morespeare
+  git branch
+  \end{lstlisting}
+
+  \begin{lstlisting}[caption=make some changes] 
+  https://archive.org/details/gutenberg?and[]=shakespeare
+  git commit -a -m "Added more shakespeare to use"
+  git push origin morespeare
+  \end{lstlisting}
+
+
+\end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Merging}
-  
-  \begin{lstlisting}[caption=Merging] 
-  git checkout master
-  git merge alpha
+
+  \begin{block}{Merging}
+   \begin{itemize}  
+      \item The counterpart to branching.
+      \item The trick is to recognise and resolve conflicts
+    \end{itemize}
+  \end{block}
+
+  \begin{lstlisting}[caption=make some changes] 
+  git checkout master 
+  git merge morespeare
+  \end{lstlisting}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Conflicts}
+
+  \begin{lstlisting}[caption=possible result of a merge] 
+  Auto-merging shakespeare_corpus.txt
+  CONFLICT (content): Merge conflict in shakespeare_corpus.txt
+  Automatic merge failed; fix conflicts and then commit the result.
+  \end{lstlisting}
+
+ \begin{lstlisting}[caption=a conflict] 
+  <<<<<<< HEAD:index.html
+  <div id="footer">contact : email.support@github.com</div>
+  =======
+  <div id="footer">
+  please contact us at support@github.com
+  </div>
+  >>>>>>> iss53:index.html
+ \end{lstlisting}
+
+\end{frame}
+
+% Collaboration
+
+\begin{frame}[fragile]
+  \frametitle{Collaboration}
+  Sometimes you want to temporarily store changes and come back to them later without commiting.
+
+  \begin{lstlisting}[caption=stashing] 
+  git stash
   git status
-  git branch -d alpha
+  git stash list
+  git stash apply
   \end{lstlisting}
 
 \end{frame}
 
 
-% recovery
-
-\begin{frame}[fragile]
-  \frametitle{Undoing mistakes}
-  
-  \begin{lstlisting}[caption=Hard Reset] 
-  git reset --hard HEAD
-  \end{lstlisting}
-
-\end{frame}
-
-
-% remotes
-
-\begin{frame}[fragile]
-  \frametitle{Remotes}
-  
-  \begin{lstlisting}[caption=Remotes] 
-  git remote show
-  git remote show origin
-  git push origin master
-  \end{lstlisting}
-
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Time for a break}
- 
-  \begin{itemize} 
-    \item Practical session to follow 
-  \end{itemize}
- 
-\end{frame}
 
 
 % Advanced Topics
@@ -235,7 +421,6 @@
 \begin{frame}
   \frametitle{rebasing}
     Rebasing, in some ways, is another way to perform a merge (amongst other things). It *replays* changes on-top of a common ancestor.
-
 
   \begin{block}{example with merging}
     \includegraphics[height=3cm]{basic-rebase-2.png}

@@ -8,23 +8,6 @@ This class is split into two parts. In the first section, you can work individua
 
 Rather than work on a program, we've decided to go with a more artistic, esoteric approach - combining lines of Shakespeare with contemporary Rap and Hip-Hop lyrics to create something new. 
 
-# Before you begin
-
-Make sure you have a good text editor available, that you are comfortable with. You will need to understand basic bash commands like cp, ls, touch, rm and similar.
-
-You should also create a [http://github.com](github.com) account if you don't have one.
-
-
-Using the college machines, you will find git-bash and git-cmd on the '''L:''' drive here:
-
-    L:\Git-2.6.4-32-bit
-
-Using git-bash, you should run the following command before all others
-
-    git config --global http.sslverify "false"
-
-This is a temporary work around '''and should not be used in production'''.
-
 # Resources and other options
 
 There are many ways to get help, and many great tutorials out there. We don't insist you follow this tutorial, although we'd like it if you did. Others we recommend include:
@@ -45,13 +28,30 @@ This deserves it's own section, as the material is excellent. I refer to this pa
 
 Please begin with part 1 and if you feel comfortable, you can move on to part 2.
 
+## Part 0
+
+Make sure you have a good text editor available, that you are comfortable with. You will need to understand basic bash commands like cp, ls, touch, rm and similar.
+
+You should also create a [http://github.com](github.com) account if you don't have one.
+
+Using the college machines, you will find git-bash and git-cmd on the '''L:''' drive here:
+
+    L:\Git-2.6.4-32-bit
+
+Using git-bash, you should run the following command before all others
+
+    git config --global http.sslverify "false"
+
+This is a temporary work around '''and should not be used in production'''.
+
+
 ## Part 1
 
 ### git clone
 
 The first thing to do is to clone the repository. Navigate to a place in your home directory and run the command:
 
-    git clone git@github.com:QMUL/gitclass.git
+    git clone https://github.com/QMUL/gitclass.git
 
 You should see a directory appear called gitclass that has all the files you need to get started
 
@@ -62,7 +62,6 @@ Run the following command from inside the gitclass directory:
     git status
 
 You should see output similar to this
-
 
 
 This command is very useful when you are making changes and you want to see what needs to be saved and what doesn't.
@@ -299,6 +298,27 @@ Part two of this couse will require some cross collaboration and is a little mor
 
 ## Part 2
 
+In this final section, we will start to merge our words with these written by other people, through github.com. There will be a list published of the usernames of your classmates. Using these, you can find other works you might like and start to mix and match.
+
+### Search Github.com and clone
+
+Firstly, search through the list of other users, looking for their *gitclass* repositories. Find one you like and then clone it as before but with *one important change*
+
+    git clone https://github.com/<username>/gitclass.git A_DIFFERENT_NAME
+
+Replace *A_DIFFERENT_NAME* with something like gitclass_jane or gitclass_nice. This way, you won't overwrite the one you have.
+
+### Working with a clone for inspiration
+
+If you've cloned someone else's repository, you have a clone of *their fork* of the original repository. You can make changes to their work, or take a copy of some lines and place them in your own work.
+
+Although their is a *common ancestor* of your repository and theirs, combining the work is quite difficult as we are using github to organise our separate repositories.
+
+### Pull and resolve conflicts
+
+Rather than use a clone, it is possible to pull directly from one person's repository and merge with your own. This is definitely worth trying. Go into your repostitory directory and run the following:
+
+   git pull https://github.com/<username>/gitclass.git
 
  
 # Credits
