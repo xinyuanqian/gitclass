@@ -61,8 +61,7 @@ Run the following command from inside the gitclass directory:
 
     git status
 
-You should see output similar to this
-
+Git should print out the status of all the files in the current directory - whether they are being tracked, if they've been modified and other useful information.
 
 This command is very useful when you are making changes and you want to see what needs to be saved and what doesn't.
 
@@ -127,6 +126,16 @@ You should see all the variations of the git commit command and what all the var
 
 The *-a* flag is quite special. This means that all the changes that have occurred should be added to this commit. The term is *staging* and it's something we will return to. It is possible for a file to have changed but you don't want to add these changes to the commit you are about to make. For now though, we will use this flag to submit *all* changes.
 
+#### before the commit can take place
+
+When you first commit something, you may be asked to setup a name and email address with git. This is so commits can be tied to a particular user. Git will warn you about this and offer the following solution
+
+    git config --global user.email "<YOUR EMAIL>"
+    git config --global user.name "<YOUR NAME>"
+
+The quotes are important. Simply follow the onscreen instructions and then re-try the commit.
+
+
 #### commit messages
 
 Before we actually commit, we should take a short time to talk about commit messages. Take a look at this: [https://xkcd.com/1296/](https://xkcd.com/1296/). This sums up what developers often do when the commit to repositories. Please don't do this sort of thing. Commit message are quite useful and although you don't want to be too long winded, do please try and write useful comments. In our example, it might be somewhat difficult as we aren't writing code, but in general, make your comments meaningful.
@@ -169,7 +178,7 @@ Lets take a quick look at what we've done so far. Run the command:
 
     git log
 
-You should see a list of commits, with their unique ID numbers and the messages you have written.
+You should see a list of commits, with their unique ID numbers and the messages you have written. Press *q* to quit.
 
 ### git rm
 
